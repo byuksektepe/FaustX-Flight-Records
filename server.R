@@ -1,5 +1,6 @@
 # package (which generally comes preloaded).
 library(datasets)
+library(leaflet)
 
 # Define a server for the Shiny app
 
@@ -32,7 +33,7 @@ function(input, output) {
     
     plot(type = "o",formatted_fcp_data$Climb_Rate, 
             main="Climb Data by Flight Time",
-            ylab="Climb Rate",
+            ylab="Climb Rate (M/S)",
             xlab="Flight Time")
   })
   output$fuel <- renderPlot({
