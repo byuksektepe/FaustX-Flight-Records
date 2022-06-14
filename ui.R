@@ -38,6 +38,10 @@ fluidPage(
                 collapsible = TRUE,
               plotOutput("climb")
             ),
+            box(title = "Fuel Usage", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("fuel")
+            ),
           ),
 
           column(12,

@@ -1,4 +1,3 @@
-# Rely on the 'WorldPhones' dataset in the datasets
 # package (which generally comes preloaded).
 library(datasets)
 
@@ -23,7 +22,6 @@ read.tcsv <- function(file, header=TRUE, sep=",", ...) {
 }
 
 
-
 function(input, output) {
 
   
@@ -36,5 +34,12 @@ function(input, output) {
             main="Climb Data by Flight Time",
             ylab="Climb Rate",
             xlab="Flight Time")
+  })
+  output$fuel <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$Fuel, 
+         main="Fuel Use Over Time",
+         ylab="FUEL (%)",
+         xlab="Flight Time")
   })
 }
