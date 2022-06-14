@@ -42,6 +42,10 @@ fluidPage(
                 collapsible = TRUE,
                 plotOutput("fuel")
             ),
+            box(title = "G Force", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("gforce")
+            ),
           ),
 
           column(12, class = "text-center",

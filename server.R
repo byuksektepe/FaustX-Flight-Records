@@ -43,4 +43,11 @@ function(input, output) {
          ylab="FUEL (%)",
          xlab="Flight Time")
   })
+  output$gforce <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$G, 
+         main="G Force",
+         ylab="G (Z ACC)",
+         xlab="Flight Time")
+  })
 }
