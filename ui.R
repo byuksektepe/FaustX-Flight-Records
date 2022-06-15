@@ -33,10 +33,14 @@ fluidPage(
           ),
 
           # Create a spot for the barplot
-          fluidRow(
+          fluidRow(  class="row",
+            box(title = "FR GPS Location Map", status = "primary", solidHeader = TRUE,class="col-lg-12", width = "12",
+                collapsible = F,
+                leafletOutput("latmap")
+            ),
             box(title = "Climb Rate", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
-              plotOutput("climb")
+                plotOutput("climb")
             ),
             box(title = "Fuel Usage", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,

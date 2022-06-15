@@ -2,6 +2,9 @@
 library(datasets)
 library(leaflet)
 
+library(maps)
+library(mapdata)
+
 # Define a server for the Shiny app
 
 read.tcsv <- function(file, header=TRUE, sep=",", ...) {
@@ -74,6 +77,22 @@ function(input, output) {
          ylab="Pitch (DEG)",
          xlab="Flight Time")
     
+  })
+  output$latmap <- renderLeaflet({
+    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
+    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
+    
+    data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(1,10)))
+    print(c(Stop_lat, Stop_long))
+    
+    leaflet() %>% 
+      addProviderTiles("Esri.WorldImagery", group="background 1") %>%
+      setView(lat=Stop_lat,lng=Stop_long, zoom=12 ) %>%
+      addCircleMarkers(data=data_red, lng=~LONG , lat=~LAT, radius=8 , color="black",
+                       fillColor="red", stroke = TRUE, fillOpacity = 0.8, group="Red")
+    
+      
+
   })
   
 }
