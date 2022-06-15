@@ -216,18 +216,24 @@ function(input, output) {
   })
   output$recordtext <- renderText({
     
-    paste("95 91")
+    formatted_fcp_data <- fcp_rel()
+    
+    paste(formatted_fcp_data$RecordID_FL[1]," ",formatted_fcp_data$RecordID_LT[1])
   })
   output$tagtext <- renderText({
     
-    paste("B")
+    formatted_fcp_data <- fcp_rel()
+    
+    paste(formatted_fcp_data$RecordTag[1])
   })
   
   output$explore <- renderText({
     formatted_fcp_data <- fcp_rel()
     
-    paste("This field contains preliminary information for flight record","95 91 B:",
+    complete_fl = paste(formatted_fcp_data$RecordID_FL[1]," ",formatted_fcp_data$RecordID_LT[1]," ",formatted_fcp_data$RecordTag[1],":")
+    
+    paste("This field contains preliminary information for flight record",complete_fl,
           "Record started at ",formatted_fcp_data$FR_Start[2],", stopped at ",formatted_fcp_data$FR_Stop[2], ". Time zone (",formatted_fcp_data$FR_Start[1],").",
-          "Last recorded fuel data: ",formatted_fcp_data$Fuel[1])
+          "Last recorded fuel data: ",formatted_fcp_data$Last_Fuel[1])
   })
 }

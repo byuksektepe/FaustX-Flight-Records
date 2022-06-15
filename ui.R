@@ -43,8 +43,8 @@ fluidPage(
             box(
               title = "Setup Data", status = "primary",
               helpText("Select a Flight Record for setup data"),
-              selectInput("fcp_data", "Select Flight Record", 
-                        choices=fcp_files),
+              selectInput("fcp_data", "Select Flight Record", width = "100%",
+                        choices=c(fcp_files)),
               hr(),
             ),
 
