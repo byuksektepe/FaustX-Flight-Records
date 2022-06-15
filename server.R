@@ -100,6 +100,54 @@ function(input, output) {
            legend = c('TAS', 'GS'))
     
   })
+  output$rpm <- renderPlot({
+    
+    plot(type = "s",formatted_fcp_data$RPM,
+         main="RPM (Unit)",
+         ylab="RPM (Unit)",
+         xlab="Flight Time")
+    
+  })
+  output$throttle <- renderPlot({
+    
+    plot(type = "s",formatted_fcp_data$Throttle,
+         main="Throttle (%)",
+         ylab="Throttle (%)",
+         xlab="Flight Time")
+    
+  })
+  output$yaw <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$Yaw,
+         main="Heading or Yaw (DEG)",
+         ylab="YAW (DEG)",
+         xlab="Flight Time")
+    
+  })
+  output$roll <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$Roll,
+         main="Roll (DEG)",
+         ylab="Roll (DEG)",
+         xlab="Flight Time")
+    
+  })
+  output$absp <- renderPlot({
+    
+    plot(type = "s",formatted_fcp_data$ABSP,
+         main="Absolute Pressure ABSP (hPa)",
+         ylab="ABSP (hPa)",
+         xlab="Flight Time")
+    
+  })
+  output$altitude <- renderPlot({
+    
+    plot(type = "s",formatted_fcp_data$Altitude,
+         main="Altitude Relative to Home (FEET)",
+         ylab="Altitude (FEET)",
+         xlab="Flight Time")
+    
+  })
   output$latmap <- renderLeaflet({
     
     data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(10,10)))
@@ -125,6 +173,21 @@ function(input, output) {
   output$maptext <- renderText({
 
     paste("First Seen Location", Start_lat,",",Start_long,"(Blue Point) ","- Last Seen Location", Stop_lat,",",Stop_long,"(Red Point) ")
+  })
+  output$recordtext <- renderText({
+    
+    paste("95 91")
+  })
+  output$tagtext <- renderText({
+    
+    paste("B")
+  })
+  
+  output$explore <- renderText({
+    
+    paste("This field contains preliminary information for flight record","95 91 B:",
+          "Record started at ",formatted_fcp_data$FR_Start[2],", stopped at ",formatted_fcp_data$FR_Stop[2], ". Time zone (",formatted_fcp_data$FR_Start[1],").",
+          "Last recorded fuel data: ",formatted_fcp_data$Fuel[1])
   })
   
 }
