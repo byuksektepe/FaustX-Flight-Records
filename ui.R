@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(datasets)
+library(leaflet)
 
 
 
@@ -16,7 +17,7 @@ fluidPage(
           p("Welcome to the FaustX Flight Records. Here you can examine the data received from FX-1 Artificial intelligence and FX-FCP."),
           hr(),
           fluidRow(
-            box(style="background_color: #11111;",
+            box(
               title = "Explore the FX Black Box", status = "primary",
               tags$p("Test text")
               
@@ -36,7 +37,8 @@ fluidPage(
           fluidRow(  class="row",
             box(title = "FR GPS Location Map", status = "primary", solidHeader = TRUE,class="col-lg-12", width = "12",
                 collapsible = F,
-                leafletOutput("latmap")
+                leafletOutput("latmap"),
+                helpText(textOutput("maptext")),
             ),
             box(title = "Climb Rate", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,

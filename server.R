@@ -1,4 +1,5 @@
 # package (which generally comes preloaded).
+
 library(datasets)
 library(leaflet)
 
@@ -82,17 +83,22 @@ function(input, output) {
     Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
     Stop_long <- formatted_fcp_data$Stop_Longitude[1]
     
-    data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(1,10)))
+    data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(10,10)))
     print(c(Stop_lat, Stop_long))
     
     leaflet() %>% 
-      addProviderTiles("Esri.WorldImagery", group="background 1") %>%
+      addProviderTiles("CartoDB.Positron") %>%
       setView(lat=Stop_lat,lng=Stop_long, zoom=12 ) %>%
       addCircleMarkers(data=data_red, lng=~LONG , lat=~LAT, radius=8 , color="black",
                        fillColor="red", stroke = TRUE, fillOpacity = 0.8, group="Red")
     
-      
+    
 
+  })
+  output$maptext <- renderText({
+    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
+    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
+    paste("Last Seen Location", Stop_lat,",",Stop_long,"(Red Point)")
   })
   
 }
