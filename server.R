@@ -169,7 +169,7 @@ function(input, output) {
     plot(type = "s",formatted_fcp_data$Altitude,
          main="Altitude Relative to Home (FEET)",
          ylab="Altitude (FEET)",
-         xlab="Flight Time")
+         xlab="Flight Time in?")
     
   })
   output$latmap <- renderLeaflet({
