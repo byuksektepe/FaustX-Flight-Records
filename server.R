@@ -114,8 +114,11 @@ function(input, output) {
   })
   output$rpm <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "s",formatted_fcp_data$RPM,
          main="RPM (Unit)",
          ylab="RPM (Unit)",
@@ -124,8 +127,11 @@ function(input, output) {
   })
   output$throttle <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "s",formatted_fcp_data$Throttle,
          main="Throttle (%)",
          ylab="Throttle (%)",
@@ -134,8 +140,11 @@ function(input, output) {
   })
   output$yaw <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "o",formatted_fcp_data$Yaw,
          main="Heading or Yaw (DEG)",
          ylab="YAW (DEG)",
@@ -144,8 +153,11 @@ function(input, output) {
   })
   output$roll <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "o",formatted_fcp_data$Roll,
          main="Roll (DEG)",
          ylab="Roll (DEG)",
@@ -154,8 +166,11 @@ function(input, output) {
   })
   output$absp <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "s",formatted_fcp_data$ABSP,
          main="Absolute Pressure ABSP (hPa)",
          ylab="ABSP (hPa)",
@@ -164,8 +179,11 @@ function(input, output) {
   })
   output$altitude <- renderPlot({
     
+<<<<<<< HEAD
     formatted_fcp_data <- fcp_rel()
     
+=======
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
     plot(type = "s",formatted_fcp_data$Altitude,
          main="Altitude Relative to Home (FEET)",
          ylab="Altitude (FEET)",
@@ -222,6 +240,16 @@ function(input, output) {
     
     paste("B")
   })
+<<<<<<< HEAD
+=======
+  
+  output$explore <- renderText({
+    
+    paste("This field contains preliminary information for flight record","95 91 B:",
+          "Record started at ",formatted_fcp_data$FR_Start[2],", stopped at ",formatted_fcp_data$FR_Stop[2], ". Time zone (",formatted_fcp_data$FR_Start[1],").",
+          "Last recorded fuel data: ",formatted_fcp_data$Fuel[1])
+  })
+>>>>>>> 48b53d353737c7dc50fe8eb5abeb5259734458e6
   
   output$explore <- renderText({
     formatted_fcp_data <- fcp_rel()
