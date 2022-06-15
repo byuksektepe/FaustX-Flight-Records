@@ -27,26 +27,20 @@ read.tcsv <- function(file, header=TRUE, sep=",", ...) {
   
 }
 
-list_data.dic <- function(){
-  
-  fcp_files <- list.files(path = "./Data/")
-  
-}
-
 
 function(input, output) {
-
   
-  formatted_fcp_data <- read.tcsv("./Data/FCP_FR_DATA.csv")
+  fcp_rel <- reactive({
+      input_data <- input$fcp_data
+      input_data <- gsub(" ", "", input_data)
+      read.tcsv(paste0("./Data/",input_data))
+  })
   
-  Start_lat <- formatted_fcp_data$Start_Latitude[1]
-  Start_long <- formatted_fcp_data$Start_Longitude[1]
-  
-  Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
-  Stop_long <- formatted_fcp_data$Stop_Longitude[1]
   
   # Fill in the spot we created for a plot
   output$climb <- renderPlot({
+    
+    formatted_fcp_data <- fcp_rel()
     
     plot(type = "s",formatted_fcp_data$Climb_Rate, 
             main="Climb Data by Flight Time (M/S)",
@@ -55,6 +49,8 @@ function(input, output) {
   })
   output$fuel <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "o",formatted_fcp_data$Fuel, 
          main="Fuel Use Over Flight Time (%)",
          ylab="FUEL (%)",
@@ -62,12 +58,16 @@ function(input, output) {
   })
   output$gforce <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$G, 
          main="G Force (Z ACC)",
          ylab="G (Z ACC)",
          xlab="Flight Time")
   })
   output$aoa <- renderPlot({
+    
+    formatted_fcp_data <- fcp_rel()
     
     plot(type = "s",formatted_fcp_data$AOA,
          main="Angle of Attack (DEG)",
@@ -78,6 +78,8 @@ function(input, output) {
   })
   output$ssa <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$SSA,
          main="Side Slip Angle (DEG)",
          ylab="SSA (DEG)",
@@ -86,6 +88,8 @@ function(input, output) {
   })
   output$pitch <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$Pitch,
          main="Pitch (DEG)",
          ylab="Pitch (DEG)",
@@ -93,6 +97,8 @@ function(input, output) {
     
   })
   output$tasgs <- renderPlot({
+    
+    formatted_fcp_data <- fcp_rel()
     
     plot(type = "s",formatted_fcp_data$TAS,
          main="True Air Speed and Ground Speed (M/S)",
@@ -108,6 +114,8 @@ function(input, output) {
   })
   output$rpm <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$RPM,
          main="RPM (Unit)",
          ylab="RPM (Unit)",
@@ -115,6 +123,8 @@ function(input, output) {
     
   })
   output$throttle <- renderPlot({
+    
+    formatted_fcp_data <- fcp_rel()
     
     plot(type = "s",formatted_fcp_data$Throttle,
          main="Throttle (%)",
@@ -124,6 +134,8 @@ function(input, output) {
   })
   output$yaw <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "o",formatted_fcp_data$Yaw,
          main="Heading or Yaw (DEG)",
          ylab="YAW (DEG)",
@@ -131,6 +143,8 @@ function(input, output) {
     
   })
   output$roll <- renderPlot({
+    
+    formatted_fcp_data <- fcp_rel()
     
     plot(type = "o",formatted_fcp_data$Roll,
          main="Roll (DEG)",
@@ -140,6 +154,8 @@ function(input, output) {
   })
   output$absp <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$ABSP,
          main="Absolute Pressure ABSP (hPa)",
          ylab="ABSP (hPa)",
@@ -148,6 +164,8 @@ function(input, output) {
   })
   output$altitude <- renderPlot({
     
+    formatted_fcp_data <- fcp_rel()
+    
     plot(type = "s",formatted_fcp_data$Altitude,
          main="Altitude Relative to Home (FEET)",
          ylab="Altitude (FEET)",
@@ -155,6 +173,14 @@ function(input, output) {
     
   })
   output$latmap <- renderLeaflet({
+    
+    formatted_fcp_data <- fcp_rel()
+    
+    Start_lat <- formatted_fcp_data$Start_Latitude[1]
+    Start_long <- formatted_fcp_data$Start_Longitude[1]
+    
+    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
+    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
     
     data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(10,10)))
     data_blue <- data.frame(LONG=Start_long, LAT=Start_lat, PLACE=paste("Blue_place_",seq(10,10)))
@@ -177,6 +203,14 @@ function(input, output) {
 
   })
   output$maptext <- renderText({
+    
+    formatted_fcp_data <- fcp_rel()
+    
+    Start_lat <- formatted_fcp_data$Start_Latitude[1]
+    Start_long <- formatted_fcp_data$Start_Longitude[1]
+    
+    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
+    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
 
     paste("First Seen Location", Start_lat,",",Start_long,"(Blue Point) ","- Last Seen Location", Stop_lat,",",Stop_long,"(Red Point) ")
   })
@@ -190,10 +224,10 @@ function(input, output) {
   })
   
   output$explore <- renderText({
+    formatted_fcp_data <- fcp_rel()
     
     paste("This field contains preliminary information for flight record","95 91 B:",
           "Record started at ",formatted_fcp_data$FR_Start[2],", stopped at ",formatted_fcp_data$FR_Stop[2], ". Time zone (",formatted_fcp_data$FR_Start[1],").",
           "Last recorded fuel data: ",formatted_fcp_data$Fuel[1])
   })
-  
 }

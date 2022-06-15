@@ -3,6 +3,7 @@ library(shinydashboard)
 library(datasets)
 library(leaflet)
 
+fcp_files <- list.files(path = "./Data/")
 
 
 fluidPage(
@@ -42,8 +43,8 @@ fluidPage(
             box(
               title = "Setup Data", status = "primary",
               helpText("Select a Flight Record for setup data"),
-              selectInput("region", "Select Flight Record", 
-                        choices=colnames(WorldPhones)),
+              selectInput("fcp_data", "Select Flight Record", 
+                        choices=fcp_files),
               hr(),
             ),
 
