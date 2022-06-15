@@ -5,6 +5,7 @@ library(leaflet)
 
 library(maps)
 library(mapdata)
+library(geosphere)
 
 # Define a server for the Shiny app
 
@@ -32,10 +33,16 @@ function(input, output) {
   
   formatted_fcp_data <- read.tcsv("./Data/FCP_FR_DATA.csv")
   
+  Start_lat <- formatted_fcp_data$Start_Latitude[1]
+  Start_long <- formatted_fcp_data$Start_Longitude[1]
+  
+  Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
+  Stop_long <- formatted_fcp_data$Stop_Longitude[1]
+  
   # Fill in the spot we created for a plot
   output$climb <- renderPlot({
     
-    plot(type = "o",formatted_fcp_data$Climb_Rate, 
+    plot(type = "s",formatted_fcp_data$Climb_Rate, 
             main="Climb Data by Flight Time (M/S)",
             ylab="Climb Rate (M/S)",
             xlab="Flight Time")
@@ -49,14 +56,14 @@ function(input, output) {
   })
   output$gforce <- renderPlot({
     
-    plot(type = "o",formatted_fcp_data$G, 
+    plot(type = "s",formatted_fcp_data$G, 
          main="G Force (Z ACC)",
          ylab="G (Z ACC)",
          xlab="Flight Time")
   })
   output$aoa <- renderPlot({
     
-    plot(type = "o",formatted_fcp_data$AOA,
+    plot(type = "s",formatted_fcp_data$AOA,
          main="Angle of Attack (DEG)",
          ylab="AOA (DEG)",
          xlab="Flight Time")
@@ -65,7 +72,7 @@ function(input, output) {
   })
   output$ssa <- renderPlot({
     
-    plot(type = "o",formatted_fcp_data$SSA,
+    plot(type = "s",formatted_fcp_data$SSA,
          main="Side Slip Angle (DEG)",
          ylab="SSA (DEG)",
          xlab="Flight Time")
@@ -73,32 +80,51 @@ function(input, output) {
   })
   output$pitch <- renderPlot({
     
-    plot(type = "o",formatted_fcp_data$Pitch,
+    plot(type = "s",formatted_fcp_data$Pitch,
          main="Pitch (DEG)",
          ylab="Pitch (DEG)",
          xlab="Flight Time")
     
   })
+  output$tasgs <- renderPlot({
+    
+    plot(type = "s",formatted_fcp_data$TAS,
+         main="True Air Speed and Ground Speed (M/S)",
+         ylab="TAS, GS (M/S)",
+         xlab="Flight Time")
+    
+    lines(formatted_fcp_data$GS, type = "s", col = "red")
+    
+    legend(x = "topleft",
+           col = c("black", "red"), lty = 1, lwd = 1,
+           legend = c('TAS', 'GS'))
+    
+  })
   output$latmap <- renderLeaflet({
-    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
-    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
     
     data_red <- data.frame(LONG=Stop_long, LAT=Stop_lat, PLACE=paste("Red_place_",seq(10,10)))
-    print(c(Stop_lat, Stop_long))
+    data_blue <- data.frame(LONG=Start_long, LAT=Start_lat, PLACE=paste("Blue_place_",seq(10,10)))
+    
+    data_line <- data.frame(LONG=c(Start_long,Stop_long), LAT=c(Start_lat,Stop_lat))
     
     leaflet() %>% 
       addProviderTiles("CartoDB.Positron") %>%
+      
       setView(lat=Stop_lat,lng=Stop_long, zoom=12 ) %>%
+      
+      addPolylines(data = data_line, lng = ~LONG, lat = ~LAT, group = "blue") %>%
+      
       addCircleMarkers(data=data_red, lng=~LONG , lat=~LAT, radius=8 , color="black",
-                       fillColor="red", stroke = TRUE, fillOpacity = 0.8, group="Red")
+                       fillColor="red", stroke = TRUE, fillOpacity = 0.8, group="Red") %>%
+      addCircleMarkers(data=data_blue, lng=~LONG , lat=~LAT, radius=8 , color="black",
+                       fillColor="blue", stroke = TRUE, fillOpacity = 0.8, group="Blue")
     
-    
+
 
   })
   output$maptext <- renderText({
-    Stop_lat <- formatted_fcp_data$Stop_Latitude[1]
-    Stop_long <- formatted_fcp_data$Stop_Longitude[1]
-    paste("Last Seen Location", Stop_lat,",",Stop_long,"(Red Point)")
+
+    paste("First Seen Location", Start_lat,",",Start_long,"(Blue Point) ","- Last Seen Location", Stop_lat,",",Stop_long,"(Red Point) ")
   })
   
 }

@@ -64,6 +64,10 @@ fluidPage(
                 collapsible = TRUE,
                 plotOutput("ssa")
             ),
+            box(title = "TAS / GS", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("tasgs")
+            ),
           ),
 
           column(12, class = "text-center",
