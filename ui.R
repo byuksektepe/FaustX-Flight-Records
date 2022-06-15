@@ -13,7 +13,14 @@ fluidPage(
           ),class="container",
           
           # Application title
-          tags$img(src="https://www.faustx.com/img/fx-stat/FX-FR-LOGO.png", width="160", class="logo"),
+          div(style="display: flex; height: 40px;", class="logo",
+              
+              img(src="https://www.faustx.com/img/fx-stat/FX-FR-LOGO-RED.png", width="160",align="left"),
+              
+              img(src="https://www.faustx.com/img/fx-stat/FX-FR-BG-R.png", width="160",align="right"),
+              
+              
+          ),
           p("Welcome to the FaustX Flight Records. Here you can examine the data received from FX-1 Artificial intelligence and FX-FCP."),
           hr(),
           fluidRow(
