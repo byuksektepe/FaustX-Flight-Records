@@ -32,22 +32,48 @@ function(input, output) {
   output$climb <- renderPlot({
     
     plot(type = "o",formatted_fcp_data$Climb_Rate, 
-            main="Climb Data by Flight Time",
+            main="Climb Data by Flight Time (M/S)",
             ylab="Climb Rate (M/S)",
             xlab="Flight Time")
   })
   output$fuel <- renderPlot({
     
     plot(type = "o",formatted_fcp_data$Fuel, 
-         main="Fuel Use Over Time",
+         main="Fuel Use Over Flight Time (%)",
          ylab="FUEL (%)",
          xlab="Flight Time")
   })
   output$gforce <- renderPlot({
     
     plot(type = "o",formatted_fcp_data$G, 
-         main="G Force",
+         main="G Force (Z ACC)",
          ylab="G (Z ACC)",
          xlab="Flight Time")
   })
+  output$aoa <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$AOA,
+         main="Angle of Attack (DEG)",
+         ylab="AOA (DEG)",
+         xlab="Flight Time")
+    
+    # lines(formatted_fcp_data$SSA*3, type = "o", col = "blue")
+  })
+  output$ssa <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$SSA,
+         main="Side Slip Angle (DEG)",
+         ylab="SSA (DEG)",
+         xlab="Flight Time")
+    
+  })
+  output$pitch <- renderPlot({
+    
+    plot(type = "o",formatted_fcp_data$Pitch,
+         main="Pitch (DEG)",
+         ylab="Pitch (DEG)",
+         xlab="Flight Time")
+    
+  })
+  
 }

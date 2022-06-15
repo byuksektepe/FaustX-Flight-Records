@@ -9,7 +9,7 @@ fluidPage(
                      "label {font-size: 12px;}",
                      ".recalculating {opacity: 1.0;}",
                      ".logo {margin-top: 15px; margin-bottom:12px}"
-          ),
+          ),class="container",
           
           # Application title
           tags$img(src="https://www.faustx.com/img/fx-stat/FX-FR-LOGO.png", width="160", class="logo"),
@@ -45,6 +45,18 @@ fluidPage(
             box(title = "G Force", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
                 plotOutput("gforce")
+            ),
+            box(title = "Pitch", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("pitch")
+            ),
+            box(title = "Angle of Attack", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("aoa")
+            ),
+            box(title = "Side Slip Angle", status = "primary", solidHeader = TRUE,
+                collapsible = TRUE,
+                plotOutput("ssa")
             ),
           ),
 
