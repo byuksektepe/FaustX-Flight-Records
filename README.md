@@ -5,6 +5,8 @@
 <br/>
 This project is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
+<div><span>Shiny Server: </span><a href="https://faustx.shinyapps.io/fx-statistics/" target="_blank">Click here for live preview</a></div>
+
 ### Project Image
 
 <br/>
