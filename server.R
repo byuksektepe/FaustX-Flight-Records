@@ -42,10 +42,11 @@ function(input, output) {
     
     formatted_fcp_data <- fcp_rel()
     
-    plot(type = "s",formatted_fcp_data$Climb_Rate, 
+    plot(type = "s",formatted_fcp_data$Climb_Rate,
             main="Climb Data by Flight Time (M/S)",
             ylab="Climb Rate (M/S)",
             xlab="Flight Time")
+
   })
   output$fuel <- renderPlot({
     
@@ -112,6 +113,7 @@ function(input, output) {
            legend = c('TAS', 'GS'))
     
   })
+  
   output$rpm <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -201,6 +203,12 @@ function(input, output) {
     
 
 
+  })
+  output$table <- renderDataTable({
+    
+    formatted_fcp_data <- fcp_rel()
+    formatted_fcp_data
+    
   })
   output$maptext <- renderText({
     

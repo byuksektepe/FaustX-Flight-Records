@@ -109,6 +109,10 @@ fluidPage(
                 collapsible = TRUE,
                 plotOutput("altitude")
             ),
+            box(title = "Altitude Home", status = "primary", solidHeader = TRUE, class="col-lg-12", width = "12",
+                collapsible = TRUE,
+                dataTableOutput('table')
+            ),
           ),
 
           column(12, class = "text-center",
