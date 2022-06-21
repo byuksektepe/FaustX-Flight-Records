@@ -112,11 +112,11 @@ fluidPage(
           ),
           br(),
           hr(),
-          br(),
-          fluidRow( class="row table-responsive",
-              box(title = "Exemine With Pure Data"),
-                    
-              dataTableOutput('table')    
+          fluidRow( class="row",
+              h3("Exemine With Pure Data"),
+              br(),
+              div(class="table-responsive",dataTableOutput('table')),      
+                  
             
           ),
 
