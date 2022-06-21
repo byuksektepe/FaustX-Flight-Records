@@ -244,4 +244,11 @@ function(input, output) {
           "Record started at ",formatted_fcp_data$FR_Start[2],", stopped at ",formatted_fcp_data$FR_Stop[2], ". Time zone (",formatted_fcp_data$FR_Start[1],").",
           "Last recorded fuel data: ",formatted_fcp_data$Last_Fuel[1])
   })
+  output$tablehead <- renderText({
+    formatted_fcp_data <- fcp_rel()
+    
+    complete_tag = paste("Examine With Pure Flight Data: FX ",formatted_fcp_data$RecordID_FL[1]," ",formatted_fcp_data$RecordID_LT[1]," ",formatted_fcp_data$RecordTag[1])
+    
+    paste(complete_tag)
+  })
 }

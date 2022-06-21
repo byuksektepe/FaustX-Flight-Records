@@ -113,11 +113,10 @@ fluidPage(
           br(),
           hr(),
           fluidRow( class="row",
-              h3("Exemine With Pure Data"),
+                    
+              h3(textOutput("tablehead")),
               br(),
               div(class="table-responsive",dataTableOutput('table')),      
-                  
-            
           ),
 
           column(12, class = "text-center",
