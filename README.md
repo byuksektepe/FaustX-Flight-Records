@@ -1,7 +1,9 @@
 ## FaustX Flight Records
 
- <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img width="78px" style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
- ![R](https://img.shields.io/badge/R-000000?style=for-the-badge&logo=r&logoColor=white)
+ <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img width="79px" style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
+  <a href="https://www.faustx.com/en/fx1-tests" rel="fx1ai"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-one-ai.png" alt="fx-1ai" /></a>
+  <a href="https://www.faustx.com/en/" rel="fx1ai"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-fcp.png" alt="fx-fcp" /></a>
+  ![R](https://img.shields.io/badge/R-000000?style=for-the-badge&logo=r&logoColor=white)
 <br/>
 This project is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 <p>This project has been developed to teach FX-1 artificial intelligence better data and to produce more stable models. Data and Flight Recorder Program (FRP) are completely open source. FRP is a by-product of the Flight Control Program (FCP). After every flight with FCP, FRP automatically uploads the data to github. You can try the project by clicking the preview link.</p>
