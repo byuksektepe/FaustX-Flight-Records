@@ -110,9 +110,13 @@ fluidPage(
                 plotOutput("altitude")
             ),
           ),
-          fluidRow( class="row",
+          br(),
+          hr(),
+          br(),
+          fluidRow( class="row table-responsive",
+              box(title = "Exemine With Pure Data"),
                     
-                    dataTableOutput('table')    
+              dataTableOutput('table')    
             
           ),
 
