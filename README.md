@@ -3,6 +3,7 @@
  <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img width="79px" style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
   <a href="https://www.faustx.com/en/fx1-tests" rel="fx1ai"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-one-ai.png" alt="fx-1ai" /></a>
   <a href="https://www.faustx.com/en/" rel="fx1ai"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-fcp.png" alt="fx-fcp" /></a>
+   <a href="https://www.faustx.com/en/" rel="fxfrp"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-fx-frp-new.png" alt="fx-frp" /></a>
   ![R](https://img.shields.io/badge/R-000000?style=for-the-badge&logo=r&logoColor=white)
   ![Git](https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git&logoColor=white)
 <br/>
