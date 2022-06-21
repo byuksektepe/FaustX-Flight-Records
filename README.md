@@ -11,7 +11,8 @@ This project is licensed under a <a href="http://creativecommons.org/licenses/by
 
 <br/>
 
-![Main](https://user-images.githubusercontent.com/61010367/173963166-ff9ba9ac-35ba-4d14-9c48-5a9734351ec5.png)
+![Main](https://user-images.githubusercontent.com/61010367/174882778-5c1be477-7f03-4a44-9767-835b7476a6ce.png)
+
 
 
 
