@@ -8,7 +8,7 @@
   ![Git](https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git&logoColor=white)
 <br/>
 This project is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
-<p>This project has been developed to teach FX-1 artificial intelligence better data and to produce more stable models. Data and Flight Recorder Program (FRP) are completely open source. FRP is a by-product of the Flight Control Program (FCP). After every flight with FCP, FRP automatically uploads the data to github. You can try the project by clicking the preview link.</p>
+<p>This project has been developed to teach FX-1 artificial intelligence better data and to produce more stable models. Data and Flight Record Program (FRP) are completely open source. FRP is a by-product of the Flight Control Program (FCP). After every flight with FCP, FRP automatically uploads the data to github. You can try the project by clicking the preview link.</p>
 
 <div><span>Shiny Server: </span><a href="https://faustx.shinyapps.io/fx-statistics/" target="_blank">Click here for live preview</a></div>
 
