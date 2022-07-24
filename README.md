@@ -20,7 +20,9 @@ Copyright (c) 2022 FaustX Technology.
 
 <br/>
 
-![Main](https://user-images.githubusercontent.com/61010367/174889791-94f1f11f-74f7-4d7e-ab9f-4dd4d73c7c3f.png)
+![image](https://user-images.githubusercontent.com/61010367/180661795-e0181064-84f1-4180-9039-5cef9bf6dc34.png)
+
+
 
 
 
