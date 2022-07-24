@@ -39,7 +39,7 @@ function(input, output) {
   
   # Fill in the spot we created for a plot
   
-  ##
+  ## Climb
   ClimbGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -63,7 +63,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## Fuel
   FuelGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -85,7 +85,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## GForce
   GForceGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -106,7 +106,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## AOA
   AOAGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -129,7 +129,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## SSA
   SSAGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -151,7 +151,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## Pitch
   PitchGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -173,7 +173,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## TAS/GS
   TASGSGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -202,7 +202,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## RPM
   RPMGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -224,7 +224,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## Throttle
   ThrottleGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -247,7 +247,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## YAW
   YAWGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -269,7 +269,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## Roll
   RollGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -292,7 +292,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## ABSP
   ABSPGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
@@ -315,7 +315,7 @@ function(input, output) {
     ))
   })
   ##
-  ##
+  ## Altitude
   AltitudeGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
