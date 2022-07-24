@@ -5,9 +5,9 @@ account: faustx
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6497328
-bundleId: 6029077
+bundleId: 6128199
 url: https://faustx.shinyapps.io/fx-statistics/
-when: 1655843014.42606
-lastSyncTime: 1655843014.42607
+when: 1658688641.31665
+lastSyncTime: 1658688641.31666
 asMultiple: FALSE
 asStatic: FALSE

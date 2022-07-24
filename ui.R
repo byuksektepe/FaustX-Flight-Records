@@ -31,11 +31,11 @@ fluidPage(
               ),
               
           ),
-          p("Welcome to the FaustX Flight Records. Here you can examine the data received from FX-1 Artificial intelligence and FX-FCP."),
+          p("Welcome to the FaustX Flight Record Program - FRP v1.1. Here you can examine the data received from FX-1 Artificial intelligence and FX-FCP."),
           hr(),
           fluidRow(
             box(
-              title = "Explore the FX Black Box", status = "primary",
+              title = "Explore the FRP Black Box", status = "primary",
               tags$p(textOutput("explore"))
               
             ),
