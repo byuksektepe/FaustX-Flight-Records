@@ -59,54 +59,68 @@ fluidPage(
             ),
             box(title = "Climb Rate", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
-                plotOutput("climb")
+                actionButton("climb", "Enlarge Graph"),
+                plotOutput("climb"),
+                
             ),
             box(title = "Fuel Usage", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("fuel", "Enlarge Graph"),
                 plotOutput("fuel")
             ),
             box(title = "G Force", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("gforce", "Enlarge Graph"),
                 plotOutput("gforce")
             ),
             box(title = "Pitch", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("pitch", "Enlarge Graph"),
                 plotOutput("pitch")
             ),
             box(title = "Angle of Attack", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("aoa", "Enlarge Graph"),
                 plotOutput("aoa")
             ),
             box(title = "Side Slip Angle", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("ssa", "Enlarge Graph"),
                 plotOutput("ssa")
             ),
             box(title = "TAS / GS", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("tasgs", "Enlarge Graph"),
                 plotOutput("tasgs")
             ),
             box(title = "Engine RPM", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("rpm", "Enlarge Graph"),
                 plotOutput("rpm")
             ),
             box(title = "Throttle", status = "primary", solidHeader = TRUE, class="col-lg-12", width = "12",
                 collapsible = TRUE,
+                actionButton("throttle", "Enlarge Graph"),
                 plotOutput("throttle")
             ),
             box(title = "Heading (YAW)", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("yaw", "Enlarge Graph"),
                 plotOutput("yaw")
             ),
             box(title = "Roll", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("roll", "Enlarge Graph"),
                 plotOutput("roll")
             ),
             box(title = "Absolute Pressure", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("absp", "Enlarge Graph"),
                 plotOutput("absp")
             ),
             box(title = "Altitude Home", status = "primary", solidHeader = TRUE,
                 collapsible = TRUE,
+                actionButton("altitude", "Enlarge Graph"),
                 plotOutput("altitude")
             ),
           ),

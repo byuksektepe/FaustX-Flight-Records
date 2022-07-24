@@ -38,26 +38,55 @@ function(input, output) {
   
   
   # Fill in the spot we created for a plot
-  output$climb <- renderPlot({
+  
+  ##
+  ClimbGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
     plot(type = "s",formatted_fcp_data$Climb_Rate,
-            main="Climb Data by Flight Time (M/S)",
-            ylab="Climb Rate (M/S)",
-            xlab="Flight Time")
-
+         main="Climb Data by Flight Time (M/S)",
+         ylab="Climb Rate (M/S)",
+         xlab="Flight Time")
+    
   })
-  output$fuel <- renderPlot({
+  
+  output$climb <- ClimbGraph
+  
+  observeEvent(input$climb, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Climb Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      ClimbGraph
+    ))
+  })
+  ##
+  ##
+  FuelGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
     plot(type = "o",formatted_fcp_data$Fuel, 
-         main="Fuel Use Over Flight Time (%)",
+         main="Fuel Usege Over Flight Time (%)",
          ylab="FUEL (%)",
          xlab="Flight Time")
   })
-  output$gforce <- renderPlot({
+  output$fuel <- FuelGraph
+  
+  observeEvent(input$fuel, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Fuel Usage Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      FuelGraph
+    ))
+  })
+  ##
+  ##
+  GForceGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -66,7 +95,19 @@ function(input, output) {
          ylab="G (Z ACC)",
          xlab="Flight Time")
   })
-  output$aoa <- renderPlot({
+  output$gforce <- GForceGraph
+  observeEvent(input$gforce, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: G Force Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      GForceGraph
+    ))
+  })
+  ##
+  ##
+  AOAGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -76,8 +117,20 @@ function(input, output) {
          xlab="Flight Time")
     
     # lines(formatted_fcp_data$SSA*3, type = "o", col = "blue")
+  }) 
+  output$aoa <- AOAGraph
+  observeEvent(input$aoa, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Attack Of Angle Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      AOAGraph
+    ))
   })
-  output$ssa <- renderPlot({
+  ##
+  ##
+  SSAGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -87,7 +140,19 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$pitch <- renderPlot({
+  output$ssa <- SSAGraph
+  observeEvent(input$ssa, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Attack Of Angle Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      SSAGraph
+    ))
+  })
+  ##
+  ##
+  PitchGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -97,7 +162,19 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$tasgs <- renderPlot({
+  output$pitch <- PitchGraph
+  observeEvent(input$pitch, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Pitch Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      PitchGraph
+    ))
+  })
+  ##
+  ##
+  TASGSGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -113,8 +190,20 @@ function(input, output) {
            legend = c('TAS', 'GS'))
     
   })
+  output$tasgs <- TASGSGraph
   
-  output$rpm <- renderPlot({
+  observeEvent(input$tasgs, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: True Air Speed and Ground Speed Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      TASGSGraph
+    ))
+  })
+  ##
+  ##
+  RPMGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -124,7 +213,19 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$throttle <- renderPlot({
+  output$rpm <- RPMGraph
+  observeEvent(input$rpm, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Engine RPM Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      RPMGraph
+    ))
+  })
+  ##
+  ##
+  ThrottleGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -134,7 +235,20 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$yaw <- renderPlot({
+  output$throttle <- ThrottleGraph
+  
+  observeEvent(input$throttle, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Throttle Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      ThrottleGraph
+    ))
+  })
+  ##
+  ##
+  YAWGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -144,7 +258,19 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$roll <- renderPlot({
+  output$yaw <- YAWGraph
+  observeEvent(input$yaw, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Yaw Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      YAWGraph
+    ))
+  })
+  ##
+  ##
+  RollGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -154,7 +280,20 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$absp <- renderPlot({
+  output$roll <- RollGraph
+  
+  observeEvent(input$roll, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Roll Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      RollGraph
+    ))
+  })
+  ##
+  ##
+  ABSPGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -164,7 +303,20 @@ function(input, output) {
          xlab="Flight Time")
     
   })
-  output$altitude <- renderPlot({
+  output$absp <- ABSPGraph
+  
+  observeEvent(input$absp, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Absolute Pressure Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      ABSPGraph
+    ))
+  })
+  ##
+  ##
+  AltitudeGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
     
@@ -174,6 +326,19 @@ function(input, output) {
          xlab="Flight Time")
     
   })
+  output$altitude <- AltitudeGraph
+  
+  observeEvent(input$altitude, {
+    showModal(modalDialog(
+      title = "Enlarged Graph View: Altitude Data",
+      easyClose = TRUE,
+      footer = modalButton("Close"),
+      size = "l",
+      AltitudeGraph
+    ))
+  })
+  ##
+  ##
   output$latmap <- renderLeaflet({
     
     formatted_fcp_data <- fcp_rel()
@@ -201,8 +366,6 @@ function(input, output) {
       addCircleMarkers(data=data_blue, lng=~LONG , lat=~LAT, radius=8 , color="black",
                        fillColor="blue", stroke = TRUE, fillOpacity = 0.8, group="Blue")
     
-
-
   })
   output$table <- renderDataTable({
     
