@@ -7,9 +7,9 @@ library(maps)
 library(mapdata)
 library(geosphere)
 
-# Generate Vertical CSV File for FX-FCP's horizontal CSV file.
-
-read.tcsv <- function(file, header=TRUE, sep=",", ...) {
+# Convert FX-FCP's horizontal(Python Index) csv file to vertical(R Column).
+# FX-FRP Only reads Index CSV.
+read.FCP <- function(file, header=TRUE, sep=",", ...) {
   
   n <- file %>%
       count.fields(sep=sep) %>%  
@@ -27,7 +27,10 @@ read.tcsv <- function(file, header=TRUE, sep=",", ...) {
                  return(var)
     }
   
-  x <- apply(do.call(cbind, lapply(x, .splitvar, sep=sep, n=n)), 1, paste, collapse=sep)
+  x <- x %>%
+      lapply(. ,.splitvar, sep=sep, n=n) %>%
+          do.call(cbind, .) %>%
+              apply(. ,1, paste, collapse=sep)
   
   out <- read.csv(text=x, sep=sep, header=header, ...) %>%
     return()
@@ -39,7 +42,7 @@ function(input, output) {
   fcp_rel <- reactive({
       input_data <- input$fcp_data
       input_data <- gsub(" ", "", input_data)
-      read.tcsv(paste0("./Data/",input_data))
+      read.FCP(paste0("./Data/",input_data))
   })
   
   
@@ -416,7 +419,7 @@ function(input, output) {
   output$tablehead <- renderText({
     formatted_fcp_data <- fcp_rel()
     
-    complete_tag = paste("Examine With Pure Flight Data: FX ",formatted_fcp_data$RecordID_FL[1]," ",formatted_fcp_data$RecordID_LT[1]," ",formatted_fcp_data$RecordTag[1])
+    complete_tag = paste("Examine With Raw Flight Data: FX ",formatted_fcp_data$RecordID_FL[1]," ",formatted_fcp_data$RecordID_LT[1]," ",formatted_fcp_data$RecordTag[1])
     
     paste(complete_tag)
   })
