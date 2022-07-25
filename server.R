@@ -1,4 +1,4 @@
-# package (which generally comes preloaded).
+# package load (which generally comes preloaded).
 
 library(datasets)
 library(leaflet)
@@ -7,24 +7,30 @@ library(maps)
 library(mapdata)
 library(geosphere)
 
-# Define a server for the Shiny app
+# Generate Vertical CSV File for FX-FCP's horizontal CSV file.
 
 read.tcsv <- function(file, header=TRUE, sep=",", ...) {
   
-  n = max(count.fields(file, sep=sep), na.rm=TRUE)
-  x = readLines(file)
+  n <- file %>%
+      count.fields(sep=sep) %>%  
+        max(na.rm=TRUE)
   
-  .splitvar = function(x, sep, n) {
-    var = unlist(strsplit(x, split=sep))
-    length(var) = n
-    return(var)
-  }
+  x <- file %>%
+        readLines()
   
-  x = do.call(cbind, lapply(x, .splitvar, sep=sep, n=n))
-  x = apply(x, 1, paste, collapse=sep) 
-  out = read.csv(text=x, sep=sep, header=header, ...)
-  return(out)
+    .splitvar <- function(x, sep, n) {
+      
+      var <- x %>%
+          strsplit(split=sep) %>%
+            unlist()
+              length(var) <- n
+                 return(var)
+    }
   
+  x <- apply(do.call(cbind, lapply(x, .splitvar, sep=sep, n=n)), 1, paste, collapse=sep)
+  
+  out <- read.csv(text=x, sep=sep, header=header, ...) %>%
+    return()
 }
 
 
