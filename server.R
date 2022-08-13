@@ -215,11 +215,15 @@ function(input, output) {
   RPMGraph <- renderPlot({
     
     formatted_fcp_data <- fcp_rel()
+    print(formatted_fcp_data$RPM+"ohooooooooooooooooo")
     
-    plot(type = "s",formatted_fcp_data$RPM,
-         main="RPM (Unit)",
-         ylab="RPM (Unit)",
-         xlab="Flight Time")
+    if(!is.empy(formatted_fcp_data$RPM)){
+      plot(type = "s",formatted_fcp_data$RPM,
+           main="RPM (Unit)",
+           ylab="RPM (Unit)",
+           xlab="Flight Time")
+    }
+    
     
   })
   output$rpm <- RPMGraph
