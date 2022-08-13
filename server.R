@@ -152,7 +152,7 @@ function(input, output) {
   output$ssa <- SSAGraph
   observeEvent(input$ssa, {
     showModal(modalDialog(
-      title = "Enlarged Graph View: Attack Of Angle Data",
+      title = "Enlarged Graph View: Side Slip Angle Data",
       easyClose = TRUE,
       footer = modalButton("Close"),
       size = "l",
