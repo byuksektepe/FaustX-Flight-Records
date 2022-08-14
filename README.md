@@ -6,7 +6,8 @@
  <a href="https://www.faustx.com/en/" rel="fxfrp"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/FaustX-Flight-Records/blob/main/Images/114x40-fx-frp-new.png" alt="fx-frp" /></a>
 ![R](https://img.shields.io/badge/R-000000?style=for-the-badge&logo=r&logoColor=white)
 ![Git](https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git&logoColor=white)
-<a href="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark#test-class-a" rel="tc-a"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark/blob/main/TCM-114x40/114x40-tc-a.png" alt="tc-a" /></a>
+ <a href="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark" rel="tc-wb"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark/blob/main/TCM-114x40-box/114x40-wb.png" alt="tc-wb" /></a>
+<a href="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark#test-class-a" rel="tc-a"><img width="79px" style="border-width: 0;" src="https://github.com/Berkantyuks/QA-Project-Test-Classification-Mark/blob/main/TCM-114x40-light/114x40-tc-a.png" alt="tc-a" /></a>
 <br/>
 This project is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
